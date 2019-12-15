@@ -22,8 +22,8 @@ public:
 
     QSqlDatabase db;
 
-    AdminWindow x;
-    CustomerWindow y;
+    AdminWindow *x = nullptr;
+    CustomerWindow *y=nullptr;
 
 private slots:
     void on_pushButton_clicked();

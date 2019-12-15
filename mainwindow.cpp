@@ -53,8 +53,9 @@ QSqlQuery qry(db);
             {
                 if(password == qry.value(0).toString())
                 {
-
-                    x.show();
+                    x=new AdminWindow(this);
+                    x->show();
+                    this->hide();
                 }
                 else
                 {
@@ -80,9 +81,13 @@ QSqlQuery qry(db);
             {
                 if(password == qry.value(0).toString())
                 {
-
-                    y.show();
+                    qry.exec("select ID_Customer FROM Customer WHERE UserName='"+username+"'");
+                    qry.next();
+                    qry.exec("UPDATE Agency SET ID_Customer ="+qry.value(0).toString());
+                    y = new CustomerWindow(this);
+                    y->show();
 //                    y.DBconnect(db);
+                    this->hide();
                 }
                 else
                 {

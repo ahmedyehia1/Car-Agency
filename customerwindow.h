@@ -17,6 +17,8 @@ class CustomerWindow : public QMainWindow
 
 public:
     QSqlDatabase DB;
+    QSqlQueryModel *model_Vehicle = new QSqlQueryModel;
+    QSqlQueryModel *model_OwnedVehicle = new QSqlQueryModel;
     explicit CustomerWindow(QWidget *parent = nullptr);
 
     ~CustomerWindow();
@@ -28,9 +30,15 @@ public:
 //    }
 
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::CustomerWindow *ui;
     QSqlTableModel *model;
+    QString Temp_ID_Customer;
 
 };
 
